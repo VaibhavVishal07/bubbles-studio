@@ -115,7 +115,7 @@ export default function Work() {
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden transition-transform duration-500 group-hover:scale-[0.985]">
               <img
-                src={`/work/${item.slug}.jpg`}
+                src={`${import.meta.env.BASE_URL}work/${item.slug}.jpg`}
                 alt={item.title}
                 loading="lazy"
                 className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-105"
