@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ChevronRight } from 'lucide-react'
 import Navbar from './components/Navbar'
-import Projects from './components/Projects'
+import Work from './components/Work'
 import Testimonial from './components/Testimonial'
 import Help from './components/Help'
 import About from './components/About'
@@ -116,7 +116,7 @@ export default function App() {
         </div>
       </div>
 
-      <Projects />
+      <Work />
       <Testimonial />
       <Help />
       <About />

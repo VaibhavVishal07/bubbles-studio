@@ -24,8 +24,8 @@ src/
     ├── hooks/useGsap.ts   reveal / float / parallax hooks
     └── components/
         ├── Navbar.tsx
-        ├── Projects.tsx       case-study grid (Framer Motion)
-        ├── Work.tsx           alternative case-study grid, not currently rendered
+        ├── Work.tsx           case-study grid (GSAP)
+        ├── Projects.tsx       alternative case-study grid (Framer Motion), not currently rendered
         ├── Testimonial.tsx
         ├── Help.tsx
         ├── About.tsx
