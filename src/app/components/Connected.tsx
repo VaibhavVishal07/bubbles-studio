@@ -1,6 +1,14 @@
 import { useFloat, useReveal } from '../hooks/useGsap'
 import BubbleMark from './BubbleMark'
-import { INK, POSTER_SRC, VIDEO_SRC, videoProps } from '../theme'
+import {
+  GLASS_DARK,
+  GLASS_LIGHT,
+  GLASS_WHITE,
+  INK,
+  POSTER_SRC,
+  VIDEO_SRC,
+  videoProps,
+} from '../theme'
 
 export default function Connected() {
   const headRef = useReveal<HTMLHeadingElement>({ y: 40 })
@@ -8,10 +16,10 @@ export default function Connected() {
   const gliderRef = useFloat<HTMLDivElement>(16, 8)
 
   return (
-    <section className="max-w-[1440px] mx-auto px-[clamp(20px,4vw,56px)] py-[clamp(80px,12vh,140px)]">
+    <section className="max-w-[1440px] mx-auto px-[clamp(20px,4vw,56px)] py-[clamp(56px,8.4vh,98px)] sm:py-[clamp(80px,12vh,140px)]">
       <h2
         ref={headRef}
-        className="max-w-[16ch] mb-14"
+        className="max-w-[16ch] mb-10 sm:mb-14"
         style={{
           fontSize: 'clamp(36px, 5vw, 68px)',
           fontWeight: 700,
@@ -33,7 +41,7 @@ export default function Connected() {
 
       <div
         ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1.2fr] gap-[clamp(20px,2.5vw,36px)] items-end"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1.2fr] gap-[clamp(14px,1.75vw,25px)] sm:gap-[clamp(20px,2.5vw,36px)] items-end"
       >
         {/* Instagram card — the hero video again, in portrait */}
         <div data-col className="relative">
@@ -47,7 +55,7 @@ export default function Connected() {
           </div>
           <a
             href="#"
-            className="absolute left-5 bottom-5 bg-white rounded-full px-4.5 py-2.5 font-semibold shadow-[0_6px_20px_rgba(11,12,15,.12)]"
+            className={`absolute left-5 bottom-5 rounded-full px-4.5 py-2.5 font-semibold text-[#1a0b2e] ${GLASS_WHITE}`}
             style={{ fontSize: 14, paddingLeft: 18, paddingRight: 18 }}
           >
             @bubbles.studio
@@ -65,7 +73,7 @@ export default function Connected() {
           </div>
         </div>
 
-        <div data-col className="flex flex-col gap-7">
+        <div data-col className="flex flex-col gap-5 sm:gap-7">
           <p className="text-neutral-600" style={{ fontSize: 17, lineHeight: 1.55 }}>
             Our monthly newsletter — a digestible selection of inspiring finds, from our
             screen to yours.
@@ -74,17 +82,15 @@ export default function Connected() {
           <div className="flex flex-wrap gap-3">
             <button
               type="button"
-              className="rounded-full px-7 py-4 text-white font-semibold transition-transform duration-300 hover:scale-105"
-              style={{ backgroundColor: INK, fontSize: 16 }}
+              className={`rounded-full px-7 py-4 text-white font-semibold transition-transform duration-300 hover:scale-105 ${GLASS_DARK}`}
+              style={{ fontSize: 16 }}
             >
               Subscribe
             </button>
             <button
               type="button"
-              className="rounded-full px-7 py-4 font-semibold border-[1.5px] transition-colors duration-300 hover:text-white"
-              style={{ fontSize: 16, color: INK, borderColor: INK }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = INK)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+              className={`rounded-full px-7 py-4 font-semibold text-[#1a0b2e] transition-colors duration-300 hover:bg-[#1a0b2e] hover:text-white ${GLASS_LIGHT}`}
+              style={{ fontSize: 16 }}
             >
               Previous issues
             </button>

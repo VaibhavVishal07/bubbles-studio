@@ -1,8 +1,7 @@
 import { ChevronRight } from 'lucide-react'
 import { useFloat, useParallax, useReveal } from '../hooks/useGsap'
 import BubbleMark from './BubbleMark'
-import SectionBadge from './SectionBadge'
-import { INK, POSTER_SRC, VIDEO_SRC, videoProps } from '../theme'
+import { GLASS_DARK, POSTER_SRC, VIDEO_SRC, videoProps } from '../theme'
 
 function Float({
   children,
@@ -35,7 +34,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden px-[clamp(20px,4vw,56px)] py-[clamp(140px,22vh,260px)] text-center"
+      className="relative overflow-hidden px-[clamp(20px,4vw,56px)] py-[clamp(98px,15.4vh,182px)] sm:py-[clamp(140px,22vh,260px)] text-center"
     >
       {/* the hero video returns, cropped into a floating card */}
       <Float
@@ -79,13 +78,9 @@ export default function About() {
       </Float>
 
       <div ref={ref} className="relative z-10">
-        <div data-reveal>
-          <SectionBadge>The studio</SectionBadge>
-        </div>
-
         <h2
           data-reveal
-          className="max-w-[18ch] mx-auto mt-6"
+          className="max-w-[18ch] mx-auto"
           style={{
             fontSize: 'clamp(40px, 5.6vw, 80px)',
             fontWeight: 700,
@@ -102,11 +97,11 @@ export default function About() {
         <button
           data-reveal
           type="button"
-          className="mt-11 inline-flex items-center gap-3 text-white rounded-full pl-7 pr-2 py-2.5 transition-transform duration-300 hover:scale-105"
-          style={{ backgroundColor: INK, fontSize: 16, fontWeight: 600 }}
+          className={`mt-8 sm:mt-11 inline-flex items-center gap-3 text-white rounded-full pl-7 pr-2 py-2.5 transition-transform duration-300 hover:scale-105 ${GLASS_DARK}`}
+          style={{ fontSize: 16, fontWeight: 600 }}
         >
           Get to know us
-          <span className="w-7 h-7 rounded-full bg-white/15 inline-flex items-center justify-center">
+          <span className="w-7 h-7 rounded-full bg-white/20 border border-white/25 inline-flex items-center justify-center">
             <ChevronRight className="w-4 h-4" />
           </span>
         </button>

@@ -4,12 +4,11 @@ import { ChevronRight } from 'lucide-react'
 import Navbar from './components/Navbar'
 import Work from './components/Work'
 import Testimonial from './components/Testimonial'
-import Help from './components/Help'
 import About from './components/About'
 import Connected from './components/Connected'
 import Footer from './components/Footer'
 import { EASE, refreshTriggersWhenSettled } from './hooks/useGsap'
-import { HERO_BG, POSTER_SRC, PURPLE, VIDEO_SRC, videoProps } from './theme'
+import { GLASS_WHITE, HERO_BG, POSTER_SRC, PURPLE, VIDEO_SRC, videoProps } from './theme'
 
 export default function App() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -38,7 +37,7 @@ export default function App() {
   return (
     <div
       className="min-h-screen w-full bg-white p-3 sm:p-4"
-      style={{ fontFamily: "'Inter', sans-serif" }}
+      style={{ fontFamily: "'Satoshi', sans-serif" }}
     >
       <div
         className="relative w-full h-[calc(100vh-24px)] sm:h-[calc(100vh-32px)] overflow-hidden rounded-2xl sm:rounded-3xl"
@@ -56,10 +55,10 @@ export default function App() {
         <div ref={heroRef} className="relative z-10">
           <Navbar />
 
-          <div className="mt-10 flex flex-col items-center px-4 pt-10 sm:pt-16 pb-8 sm:pb-12 text-center">
+          <div className="mt-8 sm:mt-10 flex flex-col items-center px-4 pt-8 sm:pt-16 pb-6 sm:pb-12 text-center">
             <div
               data-hero
-              className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-1.5 shadow-sm"
+              className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 ${GLASS_WHITE}`}
               style={{ fontSize: 13 }}
             >
               <span
@@ -71,7 +70,7 @@ export default function App() {
 
             <h1
               data-hero
-              className="mt-5 sm:mt-6 max-w-4xl"
+              className="mt-3.5 sm:mt-6 max-w-4xl"
               style={{
                 fontSize: 'clamp(43.2px, 9.6vw, 86.4px)',
                 lineHeight: 1.05,
@@ -95,7 +94,7 @@ export default function App() {
 
             <p
               data-hero
-              className="mt-4 sm:mt-6 text-neutral-700 px-2"
+              className="mt-3 sm:mt-6 text-neutral-700 px-2"
               style={{ fontSize: 'clamp(15.6px, 4.2vw, 19.2px)' }}
             >
               An Independent Design Studio Shaping Brand, Product and Digital Experiences
@@ -104,11 +103,11 @@ export default function App() {
             <button
               data-hero
               type="button"
-              className="mt-6 sm:mt-8 inline-flex items-center gap-[14.4px] bg-[#1a0b2e] text-white rounded-full pl-[28.8px] sm:pl-[33.6px] pr-[9.6px] py-[9.6px] sm:py-3 transition-transform duration-300 hover:scale-105"
+              className={`mt-4 sm:mt-8 inline-flex items-center gap-[14.4px] rounded-full pl-[28.8px] sm:pl-[33.6px] pr-[9.6px] py-[9.6px] sm:py-3 font-semibold text-[#1a0b2e] transition-transform duration-300 hover:scale-105 ${GLASS_WHITE}`}
               style={{ fontSize: 16.8 }}
             >
               See our work
-              <span className="w-[28.8px] h-[28.8px] sm:w-[33.6px] sm:h-[33.6px] rounded-full bg-white/15 inline-flex items-center justify-center">
+              <span className="w-[28.8px] h-[28.8px] sm:w-[33.6px] sm:h-[33.6px] rounded-full bg-white/45 border border-white/50 inline-flex items-center justify-center">
                 <ChevronRight className="w-[19.2px] h-[19.2px]" />
               </span>
             </button>
@@ -118,7 +117,6 @@ export default function App() {
 
       <Work />
       <Testimonial />
-      <Help />
       <About />
       <Connected />
       <Footer />

@@ -8,7 +8,7 @@ export default function Testimonial() {
     <section className="px-3 sm:px-4">
       <div
         ref={ref}
-        className="relative overflow-hidden rounded-3xl max-w-[1440px] mx-auto text-center text-white px-[clamp(24px,5vw,80px)] py-[clamp(80px,15vh,170px)]"
+        className="relative overflow-hidden rounded-3xl max-w-[1440px] mx-auto text-center text-white px-[clamp(24px,5vw,80px)] py-[clamp(56px,10.5vh,119px)] sm:py-[clamp(80px,15vh,170px)]"
         style={{ backgroundColor: INK }}
       >
         {/* purple bloom, echoing the hero's tinted video */}
@@ -47,7 +47,7 @@ export default function Testimonial() {
             the pace and the polish never dropped.
           </blockquote>
 
-          <div data-reveal className="flex flex-col items-center gap-3.5 mt-11">
+          <div data-reveal className="flex flex-col items-center gap-3.5 mt-8 sm:mt-11">
             <span
               className="w-16 h-16 rounded-full inline-flex items-center justify-center font-semibold"
               style={{

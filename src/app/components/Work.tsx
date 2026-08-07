@@ -1,6 +1,5 @@
 import { useReveal } from '../hooks/useGsap'
-import SectionBadge from './SectionBadge'
-import { INK, PURPLE } from '../theme'
+import { GLASS_LIGHT, PURPLE } from '../theme'
 
 type Case = {
   slug: string
@@ -35,12 +34,6 @@ const CASES: Case[] = [
     blurb: 'Festive corporate gifting, from Diwali hampers to onboarding kits, at scale.',
     tags: ['Product', 'Brand', 'Corporate gifting'],
   },
-  {
-    slug: 'adda',
-    title: 'Adda',
-    blurb: "A neighbourhood social app for India's housing societies and their group chats.",
-    tags: ['Product', 'Community'],
-  },
 ]
 
 function Arrow() {
@@ -71,15 +64,14 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="max-w-[1440px] mx-auto px-[clamp(20px,4vw,56px)] pt-[clamp(72px,10vh,120px)] pb-[clamp(80px,12vh,140px)]"
+      className="max-w-[1440px] mx-auto px-[clamp(20px,4vw,56px)] pt-[clamp(50px,7vh,84px)] pb-[clamp(56px,8.4vh,98px)] sm:pt-[clamp(72px,10vh,120px)] sm:pb-[clamp(80px,12vh,140px)]"
     >
-      <div ref={headRef} className="text-center mb-[clamp(48px,7vh,88px)]">
-        <div data-reveal>
-          <SectionBadge>Selected work</SectionBadge>
-        </div>
+      <div
+        ref={headRef}
+        className="text-center mb-[clamp(34px,4.9vh,62px)] sm:mb-[clamp(48px,7vh,88px)]"
+      >
         <h2
           data-reveal
-          className="mt-6"
           style={{
             fontSize: 'clamp(36px, 5vw, 68px)',
             fontWeight: 700,
@@ -102,7 +94,7 @@ export default function Work() {
 
       <div
         ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-2 gap-y-[clamp(24px,3vw,48px)] gap-x-[clamp(24px,3vw,40px)]"
+        className="grid grid-cols-1 md:grid-cols-2 gap-y-[clamp(17px,2.1vw,34px)] sm:gap-y-[clamp(24px,3vw,48px)] gap-x-[clamp(24px,3vw,40px)]"
       >
         {CASES.map((item, i) => (
           <a
@@ -122,12 +114,12 @@ export default function Work() {
               />
             </div>
 
-            <div className="pt-5 px-1">
-              <div className="flex flex-wrap gap-2 mb-3.5">
+            <div className="pt-3.5 sm:pt-5 px-1">
+              <div className="flex flex-wrap gap-2 mb-2.5 sm:mb-3.5">
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-black/10 px-3.5 py-1.5 font-semibold text-neutral-600"
+                    className={`rounded-full px-3.5 py-1.5 font-semibold text-neutral-600 ${GLASS_LIGHT}`}
                     style={{ fontSize: 12.5 }}
                   >
                     {tag}
@@ -147,7 +139,7 @@ export default function Work() {
               </h3>
 
               <p
-                className="text-neutral-600 max-w-[44ch] mb-3.5"
+                className="text-neutral-600 max-w-[44ch] mb-2.5 sm:mb-3.5"
                 style={{ fontSize: 16, lineHeight: 1.5 }}
               >
                 {item.blurb}
@@ -165,13 +157,14 @@ export default function Work() {
         ))}
       </div>
 
-      <div ref={ctaRef} className="flex justify-center mt-[clamp(100px,16vh,180px)]">
+      <div
+        ref={ctaRef}
+        className="flex justify-center mt-[clamp(70px,11.2vh,126px)] sm:mt-[clamp(100px,16vh,180px)]"
+      >
         <a
           href="#"
-          className="inline-flex items-center gap-2.5 font-semibold rounded-full px-[30px] py-4 border-[1.5px] transition-colors duration-300 hover:text-white"
-          style={{ fontSize: 16, color: INK, borderColor: INK }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = INK)}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+          className={`inline-flex items-center gap-2.5 font-semibold rounded-full px-[30px] py-4 text-[#1a0b2e] transition-colors duration-300 hover:bg-[#1a0b2e] hover:text-white ${GLASS_LIGHT}`}
+          style={{ fontSize: 16 }}
         >
           View all projects
         </a>
