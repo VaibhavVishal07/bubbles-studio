@@ -1534,24 +1534,31 @@ html[data-l2='read'] .controls,
 html[data-l2='stage'] .controls { display: none; }
 /* ---- the L2 modal ----
    ONE treatment for every L2 page — articles, the index, the about and the
-   case studies alike: the SAME panel the home page is built from, opened
-   out wider. Near-black ground, the nine-slice neon frame, the lit inset
-   edge and the hard pixel cast, all of it inherited from `.col` rather
-   than restated here.
+   case studies alike: a calm dark card, the reading measure wide, centred
+   over the dimmed city. It replaces the old split (frameless reading vs a
+   neon-framed case study) with a single, simpler thing, and it reads as
+   what it is — a modal opened over the scene.
 
-   That inheritance is the point. This block used to override the shell —
-   a flat #16131f card, a 1px white keyline, three blurred shadows and
-   `border-image: none` — which made an L2 page a different object from
-   the one it opened out of, and put the panel's appearance in two places
-   at once. Now the only thing an L2 card declares is its geometry: how
-   wide it is, and how much air is inside it. Change the frame in `.col`
-   and every page changes with it. */
+   The per-city `.col` rules that paint the neon frame carry specificity
+   (0,3,1); the trebled class ties them and wins on source order, so the
+   border-image, its cast and the extruded drop-shadow filter all step off
+   and this quiet card takes their place. */
 html[data-l2='read'] .col.col--doc.read,
 html[data-l2='stage'] .col.col--doc.cs {
-  /* Wider than the home panel's 860 — the same object, opened out. */
-  width: min(94vw, 960px);
+  width: min(94vw, 860px);
   margin-inline: auto;
   min-height: 0;
+  /* Fully opaque and a touch lighter than the scrim behind it, so the card
+     is a distinct surface — the city never bleeds THROUGH the panel — with
+     a defined edge and a real drop that lifts it off the dimmed backdrop. */
+  background: #16131f;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-image: none;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 30px 90px rgba(0, 0, 0, 0.7),
+    0 6px 24px rgba(0, 0, 0, 0.5);
+  filter: none;
   padding: clamp(26px, 3.6vw, 48px) clamp(22px, 3.4vw, 44px) clamp(36px, 5vw, 64px);
 }
 
@@ -1722,7 +1729,7 @@ html[data-l2='read'] .read__nav__ttl { font-size: 18px; font-weight: 600; }
   .col,
   .col--doc,
   .page__head { width: 100%; }
-  .col { padding: var(--s5) var(--s5); }
+  .col { padding: var(--s5) var(--s4); }
 }
 
 /* ---- card art, inside a column ----
@@ -1737,7 +1744,7 @@ html[data-l2='read'] .read__nav__ttl { font-size: 18px; font-weight: 600; }
    an interface. Roughly double, everywhere.
    ================================================================== */
 .page--home .col {
-  padding: clamp(28px, 4.5vw, 72px) clamp(34px, 5.6vw, 96px);
+  padding: clamp(28px, 4.5vw, 72px) clamp(24px, 4vw, 64px);
 }
 
 /* ---- ten pixels, and it has to be ten REAL pixels ----
@@ -1763,7 +1770,7 @@ html[data-l2='read'] .read__nav__ttl { font-size: 18px; font-weight: 600; }
 
 @media (max-width: 760px) {
   .page--home .col,
-  .col--doc { padding: var(--s5) var(--s5); }
+  .col--doc { padding: var(--s5) var(--s4); }
 }
 
 /* ---- centring that cannot clip ----
@@ -2361,13 +2368,8 @@ html[data-l2='read'] .read__nav__ttl { font-size: 18px; font-weight: 600; }
    The tint is --panel-grain: the city's own edge colour at about a
    twentieth opacity, which is enough to warm the black without
    lifting it. Tokyo's panel goes faintly pink, Dubai's faintly cyan,
-   and neither costs a step of contrast under the body text.
-
-   Every panel wears it, not just the home one: the L2 cards are the same
-   object opened out, so the surface has to be lit by the same tube — the
-   comment above already assumed this ("a poster on an L2 page and the
-   panel behind it"), and only the home page was actually getting it. */
-.col {
+   and neither costs a step of contrast under the body text. */
+.page--home .col {
   background-image:
     repeating-linear-gradient(
       to bottom,
@@ -2539,7 +2541,7 @@ html[data-l2='read'] .read__nav__ttl { font-size: 18px; font-weight: 600; }
   max-width: 26ch;
   margin: 0 auto var(--s4);
   font-family: var(--font-read);
-  font-size: clamp(18px, calc(2.2vw - 2px), 25px);
+  font-size: clamp(20px, 2.2vw, 27px);
   font-weight: 500;
   line-height: 1.36;
   letter-spacing: -0.01em;
@@ -2580,6 +2582,7 @@ html[data-l2='read'] .read__nav__ttl { font-size: 18px; font-weight: 600; }
   height: 2px;
   background: var(--ground-line);
 }
+.sect__k { color: var(--mag); }
 
 .band__lede {
   max-width: 62ch;
@@ -2776,6 +2779,14 @@ html[data-l2='case'] .col.col--doc.cs {
   width: min(96vw, 1080px);
   margin-inline: auto;
   min-height: 0;
+  background: #16131f;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-image: none;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 30px 90px rgba(0, 0, 0, 0.7),
+    0 6px 24px rgba(0, 0, 0, 0.5);
+  filter: none;
   padding: clamp(26px, 3.6vw, 48px) clamp(22px, 3.4vw, 44px) clamp(36px, 5vw, 64px);
 }
 
@@ -3284,7 +3295,7 @@ html[data-l2='case'] .col.col--doc.cs {
 }
 
 @media (max-width: 760px) {
-  .masthead .lede { font-size: 20px; max-width: 22ch; }
+  .masthead .lede { font-size: 22px; max-width: 22ch; }
   .band { padding-top: 64px; }
 
   /* One column of cards on a phone: two-up makes a 150px plate, which is
@@ -3356,7 +3367,7 @@ html[data-l2='case'] .col.col--doc.cs {
 @media (max-width: 560px) {
   .masthead .role { font-size: 11px; gap: 5px 10px; }
   .masthead .role span + span::before { margin-right: 10px; }
-  .masthead .lede { font-size: 19px; max-width: 20ch; }
+  .masthead .lede { font-size: 21px; max-width: 20ch; }
 }
 
 @media (max-width: 560px) {
@@ -3385,7 +3396,7 @@ html[data-l2='case'] .col.col--doc.cs {
   .masthead { padding-bottom: var(--s4); }
   .masthead .wordmark { margin-bottom: var(--s4); }
   .masthead .role { margin-bottom: 18px; }
-  .masthead .lede { font-size: clamp(17px, calc(2vw - 2px), 22px); }
+  .masthead .lede { font-size: clamp(19px, 2vw, 24px); }
 }
 
 /* ==================================================================
@@ -3408,6 +3419,7 @@ html[data-l2='case'] .col.col--doc.cs {
   font-weight: 400;
   letter-spacing: 0.1em;
 }
+.page--home .col .sect__k { color: var(--mag); }
 
 .page--home .col .role {
   font-family: var(--font-display);
@@ -3603,120 +3615,3 @@ html[data-l2='case'] .col.col--doc.cs {
 .cta--ghost { --cta-side: #2a1a5c; }
 
 
-
-/* ==================================================================
-   THE FOURTH CELL IS A DOOR
-
-   Two sections on the home panel now share one shape: a 2x2 rack whose
-   first three cells carry content and whose fourth carries the way
-   through to the rest of it. Writing gets three previews and "read
-   more"; the shelf gets three things I am into and "know more".
-
-   Keeping the door inside the rack rather than under it is the whole
-   point — a CTA sitting below a grid reads as a footnote to the grid,
-   and a CTA occupying a cell of it reads as the fourth item, which is
-   what it is. It also keeps the square square.
-   ================================================================== */
-
-/* The cell gives up its own padding so the anchor can fill it edge to
-   edge — otherwise the hit area is a word in the middle of a box and
-   the three-quarters of the cell around it does nothing on click.
-
-   The cell is a flex container and the anchor is `flex: 1` rather than
-   `height: 100%`: a percentage height resolves against a containing
-   block whose own height is auto, which is exactly what a block-level
-   grid item has, so `100%` there is a coin toss between browsers.
-   Stretching a flex child is not.
-
-   align-items must be restated too: `.shelf li` sets `baseline`, and a flex
-   container inheriting that aligns the anchor to its own first baseline
-   rather than stretching it — an 80px link in a 131px cell, with the
-   bottom third of the door not opening. */
-.pov li.pov__cta,
-.page--home .col .shelf--rack li.shelf__cta {
-  display: flex;
-  align-items: stretch;
-  padding: 0;
-}
-
-.pov__cta a,
-.shelf__cta a {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 28px 26px 30px;
-  font-family: var(--font-read);
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--mag);
-  text-decoration: none;
-}
-
-.pov__cta a:hover,
-.shelf__cta a:hover { background: var(--ground-2); }
-
-.pov__cta a:focus-visible,
-.shelf__cta a:focus-visible {
-  outline: 3px solid var(--teal);
-  outline-offset: -5px;
-}
-
-/* ---- the shelf, re-racked ----
-   Same grid as .pov, so the two sections read as one system. The rows
-   keep their class — and with it their per-row accent, their tick and
-   their peek — and only stop being table rows. Scoped to (0,3,1) to
-   land on top of `.page--home .col .shelf li`, which is where the row
-   layout is set. */
-.page--home .col .shelf--rack {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2px;
-  margin: 0;
-  padding: 0;
-  background: var(--ground-line-2);
-  border: 2px solid var(--ground-line-2);
-}
-
-.page--home .col .shelf--rack li {
-  display: block;
-  padding: 28px 26px 30px;
-  background: var(--ground);
-  border-bottom: 0;
-  text-align: center;
-}
-
-/* Label over title over attribution, rather than three columns of a
-   row. The order is unchanged; only the axis is.
-
-   :not(.shelf__cta) matters: the door's arrow is a <span> too, and
-   without the exclusion it is styled as a shelf LABEL — 11.5px, tracked
-   out, on its own line under the words. */
-.page--home .col .shelf--rack li:not(.shelf__cta) span { display: block; margin-bottom: 10px; }
-.page--home .col .shelf--rack b { display: block; margin-bottom: 6px; }
-.page--home .col .shelf--rack i { display: block; }
-
-/* The arrow rides the CTA's own type, not the shelf's. Scoped to (0,3,2)
-   so it lands on top of `.page--home .col .shelf span`. */
-.page--home .col .shelf__cta a span {
-  display: inline;
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  letter-spacing: 0;
-  color: inherit;
-}
-
-.page--home .col .shelf--rack li:hover { background: var(--ground-2); }
-
-/* One column on a phone, matching .pov's own breakpoint — two cells
-   across a 360px screen is a 150px card with a three-line title in it. */
-@media (max-width: 760px) {
-  .page--home .col .shelf--rack { grid-template-columns: minmax(0, 1fr); }
-  .pov__cta a,
-  .shelf__cta a { padding: 22px 20px 24px; }
-  .page--home .col .shelf--rack li { padding: 22px 20px 24px; }
-}
