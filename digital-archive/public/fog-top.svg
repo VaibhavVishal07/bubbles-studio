@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 560" width="1600" height="560" preserveAspectRatio="none">
+  <defs>
+    <filter id="smoke" x="-30%" y="-40%" width="160%" height="180%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.004 0.007" numOctaves="5" seed="11" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="190" xChannelSelector="R" yChannelSelector="G" />
+      <feGaussianBlur stdDeviation="16" />
+    </filter>
+    <filter id="haze" x="-30%" y="-40%" width="160%" height="180%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.011" numOctaves="4" seed="3" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="120" xChannelSelector="R" yChannelSelector="G" />
+      <feGaussianBlur stdDeviation="26" />
+    </filter>
+
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7a2c0b" />
+      <stop offset="30%" stop-color="#6b2408" />
+      <stop offset="65%" stop-color="#521404" />
+      <stop offset="100%" stop-color="#410C01" />
+    </linearGradient>
+
+    <!-- Feathered on both edges so the band dissolves into whatever sits
+         above and below it, instead of ending on a hard seam. -->
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0" />
+      <stop offset="18%" stop-color="#fff" stop-opacity="0.3" />
+      <stop offset="36%" stop-color="#fff" stop-opacity="0.85" />
+      <stop offset="52%" stop-color="#fff" stop-opacity="1" />
+      <stop offset="72%" stop-color="#fff" stop-opacity="0.95" />
+      <stop offset="88%" stop-color="#fff" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+
+    <mask id="feather">
+      <rect width="1600" height="560" fill="url(#fade)" />
+    </mask>
+  </defs>
+
+  <g mask="url(#feather)">
+    <rect x="0" y="0" width="1600" height="560" fill="url(#ground)" />
+
+    <!-- billowing crest -->
+    <g filter="url(#smoke)" fill="#5c1c06">
+      <ellipse cx="240" cy="250" rx="300" ry="150" />
+      <ellipse cx="700" cy="215" rx="360" ry="165" />
+      <ellipse cx="1180" cy="255" rx="330" ry="150" />
+      <ellipse cx="1520" cy="285" rx="260" ry="130" />
+    </g>
+
+    <!-- lit highlights catching the light from above -->
+    <g filter="url(#haze)" fill="#c98d63" opacity="0.5">
+      <ellipse cx="430" cy="270" rx="230" ry="80" />
+      <ellipse cx="980" cy="240" rx="270" ry="72" />
+      <ellipse cx="1420" cy="300" rx="190" ry="66" />
+    </g>
+    <g filter="url(#haze)" fill="#f0d3b8" opacity="0.28">
+      <ellipse cx="620" cy="255" rx="200" ry="52" />
+      <ellipse cx="1220" cy="285" rx="180" ry="46" />
+    </g>
+  </g>
+</svg>

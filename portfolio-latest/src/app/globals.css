@@ -1,0 +1,127 @@
+/* ------------------------------------------------------------------
+   Fonts
+   ------------------------------------------------------------------ */
+@font-face {
+  font-family: 'Pixelon';
+  src: url('/fonts/pixelon-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Metric-matched fallbacks. Pixelon has no glyph for a few characters
+   (the curly apostrophe, for one), so the fallback must have the same
+   metrics or those characters render at the wrong width. */
+@font-face {
+  font-family: 'Pixelon Placeholder';
+  src: local('Arial');
+  ascent-override: 67.74%;
+  descent-override: 22.58%;
+  line-gap-override: 0%;
+  size-adjust: 110.71%;
+}
+@font-face {
+  font-family: 'Satoshi Placeholder';
+  src: local('Arial');
+  ascent-override: 102.23%;
+  descent-override: 24.29%;
+  line-gap-override: 10.12%;
+  size-adjust: 98.8%;
+}
+
+/* ------------------------------------------------------------------
+   Design tokens — edit these to restyle the whole site
+   ------------------------------------------------------------------ */
+:root {
+  --bg: #f0efed;
+  --ink: #331b00;          /* pixel headings */
+  --ink-soft: rgba(0, 0, 0, 0.8);
+  --muted: rgba(99, 99, 99, 0.8);
+  --link: rgba(34, 34, 34, 0.8);
+  --rule: #d9d9d9;
+
+  --badge-bg: #d6dfca;
+  --badge-ink: #003d0c;
+
+  --btn-dark: #090920;
+  --btn-dark-border: rgba(255, 255, 255, 0.12);
+  --btn-light-border: #d9d8d6;
+
+  --card-face: linear-gradient(180deg, #ffffff 0%, rgba(255, 251, 242, 1) 100%);
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+
+  /* Pixel display face. Geist Pixel is loaded via next/font in layout.tsx.
+     To go back to the typeface the original Framer site used, swap this to:
+       'Pixelon', 'Pixelon Placeholder', sans-serif
+     (the woff2 is still in public/fonts and its @font-face is still declared). */
+  --font-pixel: var(--font-geist-pixel), 'Pixelon', 'Pixelon Placeholder', sans-serif;
+  --font-sans: 'Satoshi', 'Satoshi Placeholder', sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Desktop canvas: the design is authored 1440px wide and centred. */
+  --canvas: 1440px;
+}
+
+/* ------------------------------------------------------------------
+   Reset
+   ------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+img,
+svg {
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+/* Pixel art must never be smoothed. */
+.pixel {
+  image-rendering: pixelated;
+}

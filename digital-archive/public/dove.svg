@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" width="240" height="200">
+  <defs>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="7" result="b" />
+      <feColorMatrix in="b" type="matrix"
+        values="0 0 0 0 1  0 0 0 0 0.94  0 0 0 0 0.88  0 0 0 0.55 0" result="g" />
+      <feMerge>
+        <feMergeNode in="g" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="plume" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="70%" stop-color="#f6ece2" />
+      <stop offset="100%" stop-color="#e4d2c2" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#glow)" fill="url(#plume)">
+    <!-- far wing, held back -->
+    <path
+      d="M 138 118 C 128 84 112 54 84 34 C 92 68 98 100 104 126 Z"
+      opacity="0.45"
+      transform="translate(16 8) rotate(6 138 118)"
+    />
+
+    <!-- tail -->
+    <path d="M 70 142 L 18 124 L 30 146 L 10 160 L 72 158 Z" />
+
+    <!-- body -->
+    <ellipse cx="118" cy="134" rx="56" ry="25" transform="rotate(-11 118 134)" />
+
+    <!-- neck -->
+    <ellipse cx="158" cy="116" rx="24" ry="17" transform="rotate(-32 158 116)" />
+
+    <!-- head -->
+    <circle cx="182" cy="98" r="16" />
+
+    <!-- beak -->
+    <path d="M 195 93 L 220 99 L 194 106 Z" />
+
+    <!-- near wing, raised -->
+    <path d="M 134 120 C 122 82 104 48 72 26 C 82 62 90 98 96 128 Z" />
+  </g>
+</svg>

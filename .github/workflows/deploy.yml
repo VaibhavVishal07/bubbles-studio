@@ -15,31 +15,26 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+# This repository holds several projects side by side; exactly one of them
+# is the published site. That is 8-bit-portfolio, and it is static —
+# hand-written HTML, CSS and JS, no dependencies and no build step — so the
+# whole "build" is picking the folder up. There is deliberately no npm here:
+# a install-and-build stage that produces nothing is only a thing that can
+# fail. Point `path` at a different project to publish a different one.
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci
-      - run: npm run build
-
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: 8-bit-portfolio
+
       - id: deployment
         uses: actions/deploy-pages@v4
