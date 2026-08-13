@@ -1,0 +1,10 @@
+/* Satoshi (300–900) — served from Fontshare, the foundry's own free CDN.
+   Satoshi is an Indian Type Foundry face and is not published on Google Fonts,
+   so it cannot be imported from fonts.googleapis.com. */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap');
+
+/* Google Fonts — Instrument Serif (regular + italic) */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+/* DM Sans (400/500) — used by the Projects section */
+@import url('https://fonts.googleapis.com/css?family=DM+Sans:500,400&display=swap');
